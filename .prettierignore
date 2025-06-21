@@ -1,0 +1,21 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore build/output directories
+dist/
+build/
+
+# Ignore environment files
+.env
+
+# Ignore logs or temp data
+*.log
+*.tmp
+
+# Ignore specific config or generated files
+coverage/
+public/
+docs/
+
+# Ignore frontend in monorepos
+client/
