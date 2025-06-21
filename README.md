@@ -26,3 +26,5 @@ This project is a **YouTube-like backend system** built using **Node.js, Express
 - **Others**: Dotenv, Morgan, CORS, etc.
 
 ---
+
+[DB Models, Components and Structure](https://app.eraser.io/workspace/aPXhDacEffC6cp8Wfjq2)
