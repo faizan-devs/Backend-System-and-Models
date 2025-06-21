@@ -24,7 +24,3 @@ This project is a **YouTube-like backend system** built using **Node.js, Express
 - **Authentication**: JWT (JSON Web Tokens), Bcrypt
 - **File Handling**: Multer for video uploads
 - **Others**: Dotenv, Morgan, CORS, etc.
-
----
-
-DB Models, Components and Structure [click](https://app.eraser.io/workspace/aPXhDacEffC6cp8Wfjq2)
