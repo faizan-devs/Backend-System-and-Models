@@ -26,5 +26,3 @@ This project is a **YouTube-like backend system** built using **Node.js, Express
 - **Others**: Dotenv, Morgan, CORS, etc.
 
 ---
-
-## 📂 Project Structure
