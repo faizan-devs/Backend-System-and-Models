@@ -1,5 +1,5 @@
 import { asyncHandler } from "../utils/aynchandler.js";
-import { APiError } from "../utils/apiError.js";
+import { ApiError } from "../utils/apiError.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -16,7 +16,7 @@ const generateAccessandRefreshTokens = async (userId) => {
         return { accessToken, refreshToken }
 
     } catch (error) {
-        throw new APiError(500, "something went wrong while generating refresh and access token")
+        throw new ApiError(500, "something went wrong while generating refresh and access token")
     }
 }
 
@@ -59,14 +59,14 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     if (!avatarLocalPath) {
-        throw new APiError(400, "Avatar file is required")
+        throw new ApiError(400, "Avatar file is required")
     }
 
     const avatar = await uploadOnCloudinary(avatarLocalPath)
     const coverImage = await uploadOnCloudinary(coverImageLocalPath)
 
     if (!avatar) {
-        throw new APiError(400, "Avatar file is required")
+        throw new ApiError(400, "Avatar file is required")
     }
 
     const user = await User.create({
@@ -83,7 +83,7 @@ const registerUser = asyncHandler(async (req, res) => {
     )
 
     if (!createdUser) {
-        throw new APiError(500, "Something went wrong")
+        throw new ApiError(500, "Something went wrong")
     }
 
     return res.status(201).json(
@@ -103,7 +103,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const { email, username, password } = req.body;
 
     if (!(username || email)) {
-        throw new APiError(400, "Username or email is required")
+        throw new ApiError(400, "Username or email is required")
     }
 
     // Here is an alternative of above code based on logic discussed in video:
@@ -117,13 +117,13 @@ const loginUser = asyncHandler(async (req, res) => {
     })
 
     if (!user) {
-        throw new APiError(404, "User does not exist")
+        throw new ApiError(404, "User does not exist")
     }
 
     const isPasswordValid = await user.isPasswordCorrect(password);
 
     if (!isPasswordValid) {
-        throw new APiError(401, "Invalid Password")
+        throw new ApiError(401, "Invalid Password")
     }
 
     const { accessToken, refreshToken } = await generateAccessandRefreshTokens(user._id)
