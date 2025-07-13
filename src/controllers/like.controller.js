@@ -1,6 +1,6 @@
 import mongoose, { isValidObjectId } from "mongoose"
 import { Like } from "../models/like.model.js"
-import { ApiError } from "../utils/ApiError.js"
+import { ApiError } from "../utils/apiError.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 
@@ -18,11 +18,18 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
 const toggleTweetLike = asyncHandler(async (req, res) => {
     const { tweetId } = req.params
     //TODO: toggle like on tweet
-}
-)
+})
 
 const getLikedVideos = asyncHandler(async (req, res) => {
     //TODO: get all liked videos
+})
+
+const getLikedComments = asyncHandler(async (req, res) => {
+    //TODO: get all liked comments
+})
+
+const getLikedTweets = asyncHandler(async (req, res) => {
+    //TODO: get all liked tweets
 })
 
 export {
